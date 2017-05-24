@@ -2,16 +2,46 @@
 using UnityEngine;
 
 public class PlayerContral : MonoBehaviour {
-	private Rigidbody2D rb2d;
-	public float speed;
-	void Start()
+	private float runspeed=10;
+	private float jumphight=100;
+	private Rigidbody2D body;
+	private Animator animator;
+
+	private bool jumping = false;
+	private bool isGround= false;
+	private bool attack = false;
+	void Awake()
 	{
-		rb2d = GetComponent<Rigidbody2D>();	
+		body = GetComponent<Rigidbody2D>();	
+		animator = GetComponent<Animator> ();
 	}
 	void FixedUpdate () {
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
-		Vector2 movement = new Vector2 (moveHorizontal,moveVertical);
-		rb2d.AddForce (movement*speed);
+		move();
+		jump ();
+	}
+	void move()
+	{
+		float speed = Input.GetAxis ("Horizontal") * runspeed;
+		Vector2 movement = new Vector2 (speed,0);
+		body.AddForce(movement);
+//		if (speed != 0) 
+//		{
+//			if(Mathf.Sign (body.velocity.x) == 1)
+//			{
+//				transform.localScale = new Vector2(1, 0);
+//			}
+//			else
+//			{	
+//				transform.localScale = new Vector2(-1, 0);
+//			}
+//		}
+	}
+	void jump()
+	{
+		if (Input.GetButtonDown ("Jump")) 
+		{
+			Vector2 UP = new Vector2 (0,jumphight); 
+			body.AddForce (UP);
+		}
 	}
 }
