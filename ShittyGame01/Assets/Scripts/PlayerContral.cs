@@ -10,10 +10,10 @@ public class PlayerContral : MonoBehaviour {
 	private bool jumping = false;
 	private bool isGround= false;
 	private bool attack = false;
-	void Awake()
+	void Awake()//初始
 	{
-		body = GetComponent<Rigidbody2D>();	
-		animator = GetComponent<Animator> ();
+		body = GetComponent<Rigidbody2D>();	//函式庫縮寫
+		animator = GetComponent<Animator> (); //函式庫縮寫
 	}
 	void FixedUpdate () {
 		move();
@@ -21,9 +21,9 @@ public class PlayerContral : MonoBehaviour {
 	}
 	void move()
 	{
-		float speed = Input.GetAxis ("Horizontal") * runspeed;
+		float speed = Input.GetAxis ("Horizontal") * runspeed;//當按水平左右鍵的時候
 		Vector2 movement = new Vector2 (speed,0);
-		body.AddForce(movement);
+		body.AddForce(movement);//給予gameObj 水平力
 //		if (speed != 0) 
 //		{
 //			if(Mathf.Sign (body.velocity.x) == 1)
@@ -38,7 +38,7 @@ public class PlayerContral : MonoBehaviour {
 	}
 	void jump()
 	{
-		if (body.velocity.y != 0)
+		if (body.velocity.y != 0)//若還沒洛帝或是上升中禁用跳躍
 			return;
 		else
 		{
