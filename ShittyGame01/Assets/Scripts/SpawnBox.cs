@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class SpawnBox : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public Texture2D tex;
+	public Sprite newBox;
+	private SpriteRenderer sr;
+	void Awake () {
+		sr = gameObject.AddComponent<SpriteRenderer> () as SpriteRenderer;
+		sr.color = new Color (1.0f,0.0f,0.0f);
+		transform.position = new Vector3 (0, 0, 0);
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		
 	}

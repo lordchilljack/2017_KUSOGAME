@@ -2,8 +2,8 @@
 using UnityEngine;
 
 public class PlayerContral : MonoBehaviour {
-	private float runspeed=10;
-	private float jumphight=100;
+	private float runspeed=50;
+	private float jumphight=1000;
 	private Rigidbody2D body;
 	private Animator animator;
 
@@ -38,10 +38,15 @@ public class PlayerContral : MonoBehaviour {
 	}
 	void jump()
 	{
-		if (Input.GetButtonDown ("Jump")) 
+		if (body.velocity.y != 0)
+			return;
+		else
 		{
-			Vector2 UP = new Vector2 (0,jumphight); 
-			body.AddForce (UP);
+			if (Input.GetButtonDown ("Jump")) 
+			{
+				Vector2 UP = new Vector2 (0, jumphight); 
+				body.AddForce (UP);
+			}
 		}
 	}
 }

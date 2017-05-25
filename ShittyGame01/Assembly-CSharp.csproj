@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Camerafollow.cs" />
      <Compile Include="Assets\Scripts\PlayerContral.cs" />
      <Compile Include="Assets\Scripts\SpawnBox.cs" />
  <Reference Include="UnityEngine.UI">
