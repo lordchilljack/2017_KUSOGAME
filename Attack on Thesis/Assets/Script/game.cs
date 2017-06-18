@@ -71,7 +71,7 @@ public class game : MonoBehaviour {
     public void Update()
     {
 
-        if (hp1<=0&&paper<=100)
+        if (hp1<=-25&&paper<=100)
         {
             SceneManager.LoadScene(end);
 
@@ -81,17 +81,17 @@ public class game : MonoBehaviour {
             SceneManager.LoadScene(end2);
 
         }
-        if (hp1 > 0 && paper < 100 && hpy <= 0 && work > 0)
+        if (hp1 > 0 && paper < 100 && hpy <= 0 && work > 50)
         {
             SceneManager.LoadScene(end3);
 
         }
-        if (hp1 > 0 && paper < 100 && hpy <= 10 && work <= 0)
+        if (hp1 > 0 && paper < 100 && hpy <= 10 && work <= 50)
         {
             SceneManager.LoadScene(end4);
 
         }
-        if (hp1 > 0 && paper >= 100 && hpy < 0 && work > 0)
+        if (hp1 > 0 && paper >= 100 && hpy < 50 && work > 0)
         {
             SceneManager.LoadScene(end5);
 
