@@ -21,7 +21,7 @@ public class game : MonoBehaviour {
 
     public void Start()
     {
-        aime = GetComponent<Animator>();
+		aime = GetComponentInChildren<Animator>();
     }
     public void  Down()
     {
@@ -35,6 +35,8 @@ public class game : MonoBehaviour {
         papertext.text = (paper).ToString();
         aime.SetTrigger("do1");
 		aime.SetBool ("BP", true);
+		float v1 = Random.Range (0, 1);
+		aime.SetFloat ("do1v",v1);
 		HPboost = 0;
     }
     public void Down2()
@@ -45,7 +47,9 @@ public class game : MonoBehaviour {
         worktext.text = (work).ToString();
         hpy = hpy + 0.1;
         hpyText.text = (hpy ).ToString();
+		float v2 = Random.Range (0, 2);
 		aime.SetTrigger("do2");
+		aime.SetFloat ("do2v",v2);
 		HPboost = 0;
 		aime.SetBool ("BP", true);
     }
@@ -59,6 +63,8 @@ public class game : MonoBehaviour {
         hpyText.text = (hpy ).ToString();
 		HPboost = 0;
 		aime.SetTrigger("do3");
+		float v3 = Random.Range (0, 2);
+		aime.SetFloat ("do3v",v3);
 		aime.SetBool ("BP", true);
     } 
     public void Update()
