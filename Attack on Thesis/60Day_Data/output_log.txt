@@ -1,0 +1,62 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 760 (ID=0x1187)
+    Vendor:   NVIDIA
+    VRAM:     1957 MB
+    Driver:   22.21.13.8205
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.045 seconds
+Platform assembly: E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\2017_KUSOGAME\Attack on Thesis\60Day_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1253 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.922321 ms
+Scene 'Main Game' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 137)
+
+Scene 'Main Game' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 137)
+
+Scene 'Main Game' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 137)
+
+Scene 'Main Game' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 137)
+
+Scene 'Main Game' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 137)
+
+Scene 'Main Game' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 137)
+
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 229c -> priority: 1 
+  Thread -> id: 1254 -> priority: 1 
+  Thread -> id: 2938 -> priority: 1 
+  Thread -> id: 4d0 -> priority: 1 
