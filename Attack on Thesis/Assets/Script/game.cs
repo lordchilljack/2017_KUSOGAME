@@ -12,7 +12,7 @@ public class game : MonoBehaviour {
     public float time = 0;
     public int tt;
 	public double Lday=60;
-
+    public string end,end2,end3,end4,end5,end6,end7,end8;
 	public Text hpText, hpyText,worktext,papertext,day1,Ldaytext;
     public Button b1,b2,b3;
 	private int HPboost = 0;
@@ -34,6 +34,7 @@ public class game : MonoBehaviour {
         paper += (100 - hp1) / 100;
         papertext.text = (paper).ToString();
         aime.SetTrigger("do1");
+
 		aime.SetBool ("BP", true);
 		float v1 = Random.Range (0, 1);
 		aime.SetFloat ("do1v",v1);
@@ -69,6 +70,37 @@ public class game : MonoBehaviour {
     } 
     public void Update()
     {
+
+        if (hp1<=0&&paper<=100)
+        {
+            SceneManager.LoadScene(end);
+
+        }
+        if (hp1 > 0 && paper >= 100 &&hpy>0 && work>0)
+        {
+            SceneManager.LoadScene(end2);
+
+        }
+        if (hp1 > 0 && paper < 100 && hpy <= 0 && work > 0)
+        {
+            SceneManager.LoadScene(end3);
+
+        }
+        if (hp1 > 0 && paper < 100 && hpy <= 10 && work <= 0)
+        {
+            SceneManager.LoadScene(end4);
+
+        }
+        if (hp1 > 0 && paper >= 100 && hpy < 0 && work > 0)
+        {
+            SceneManager.LoadScene(end5);
+
+        }
+        if (hp1 > 0 && paper < 50 && hpy <= -10 && work > 10)
+        {
+            SceneManager.LoadScene(end8);
+
+        }
         time += Time.deltaTime;
         day1.text = (time).ToString();
 		if ((int)time>tt)
