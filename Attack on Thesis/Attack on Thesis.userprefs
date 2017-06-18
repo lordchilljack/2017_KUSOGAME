@@ -3,7 +3,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\game.cs">
     <Files>
       <File FileName="Assets\Script\start.cs" Line="7" Column="2" />
-      <File FileName="Assets\Script\game.cs" Line="97" Column="6" />
+      <File FileName="Assets\Script\game.cs" Line="61" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
