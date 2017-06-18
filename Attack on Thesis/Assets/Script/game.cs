@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class game : MonoBehaviour {
     public double hp1 = 100;
@@ -16,11 +16,12 @@ public class game : MonoBehaviour {
 	public Text hpText, hpyText,worktext,papertext,day1,Ldaytext;
     public Button b1,b2,b3;
 	private int HPboost = 0;
-    Animator aime;
+    public Animator aime;
+	public string ED1, ED2, ED3, ED4, ED5, ED6, ED7;
+
     public void Start()
     {
         aime = GetComponent<Animator>();
-
     }
     public void  Down()
     {
@@ -28,14 +29,13 @@ public class game : MonoBehaviour {
         hpText.text = hp1.ToString();
         work=work - 3;
         worktext.text = (work ).ToString();
-        hpy = hpy - 0.1;
+        hpy = hpy - 1;
         hpyText.text = (hpy ).ToString();
         paper += (100 - hp1) / 100;
         papertext.text = (paper).ToString();
         aime.SetTrigger("do1");
+		aime.SetBool ("BP", true);
 		HPboost = 0;
-		aime.SetBool("ButtonPushed",true);
-
     }
     public void Down2()
     {
@@ -45,10 +45,10 @@ public class game : MonoBehaviour {
         worktext.text = (work).ToString();
         hpy = hpy + 0.1;
         hpyText.text = (hpy ).ToString();
+		aime.SetTrigger("do2");
 		HPboost = 0;
-		aime.SetBool("ButtonPushed",true);
+		aime.SetBool ("BP", true);
     }
-
     public void Down3()
     {
         hp1 = hp1 - 0.1;
@@ -58,34 +58,34 @@ public class game : MonoBehaviour {
         hpy = hpy + 0.5;
         hpyText.text = (hpy ).ToString();
 		HPboost = 0;
-		aime.SetBool("ButtonPushed",true);
-    }
-    
+		aime.SetTrigger("do3");
+		aime.SetBool ("BP", true);
+    } 
     public void Update()
     {
         time += Time.deltaTime;
         day1.text = (time).ToString();
-		        if ((int)time>tt)
+		if ((int)time>tt)
         {
 			HPboost++;
             work = work - 1;
+			Lday=work/24;
+			Ldaytext.text = (Lday).ToString();
             worktext.text = (work).ToString();
 			if (hp1 < 100) 
 			{
-				if (HPboost >5&&hp1<90)
+				if (HPboost >5 && hp1<97.5)
 				{
-					aime.SetBool("ButtonPushed",false);
-					hp1 = hp1 + 10;
+					
+					hp1 = hp1 + 2.5;
+					aime.SetBool ("BP",false);
 				}
 				else
 				{
-					hp1 = hp1 + 0.5;
+					hp1 = hp1 + 0.1;
 				}
-
 			}
             hpText.text = hp1.ToString();
-			Lday=work/24;
-			Ldaytext.text = (Lday).ToString();
         }
         tt = (int)time;
     }
