@@ -17,61 +17,82 @@ public class game : MonoBehaviour {
     public Button b1,b2,b3;
 	private int HPboost = 0;
     public Animator aime;
-
+	private int animatereturner = 0;
     public void Start()
     {
 		aime = GetComponentInChildren<Animator>();
     }
-    public void  Down()
+    public void  Down()//work
     {
+		aime.SetBool ("BP", true);
 		aime.SetBool ("do2", false);
 		aime.SetBool ("do3", false);
+		aime.SetBool ("do1", true);
         hp1=hp1-1;
         hpText.text = hp1.ToString();
         work=work - 3;
-        worktext.text = (work ).ToString();
+		worktext.text = (work ).ToString("F1");
         hpy = hpy - 1;
-        hpyText.text = (hpy ).ToString();
+		hpyText.text = (hpy ).ToString("F1");
         paper += (100 - hp1) / 100;
-        papertext.text = (paper).ToString();
-		aime.SetBool ("do1", true);
-		aime.SetBool ("BP", true);
-		aime.SetFloat ("do1v",Random.Range (-1f, 2f));
+		papertext.text = (paper).ToString("F1");
 		HPboost = 0;
     }
-    public void Down2()
+    public void Down2()//play
     {
+		aime.SetBool ("BP", true);
 		aime.SetBool ("do1", false);
 		aime.SetBool ("do3", false);
-        hp1 = hp1 -1;
-        hpText.text = hp1.ToString();
-        work = work - 3;
-        worktext.text = (work).ToString();
-        hpy = hpy + 0.1;
-        hpyText.text = (hpy ).ToString();
 		aime.SetBool ("do2", true);
-		aime.SetFloat ("do2v",Random.Range (-1f, 3f));
+        hp1 = hp1 -1;
+		hpText.text = hp1.ToString("F1");
+        work = work - 3;
+		worktext.text = (work).ToString("F1");
+        hpy = hpy + 0.5;
+		hpyText.text = (hpy ).ToString("F1");
 		HPboost = 0;
-		aime.SetBool ("BP", true);
     }
-    public void Down3()
+    public void Down3()//eat
     {
+		aime.SetBool ("BP", true);
 		aime.SetBool ("do1", false);
 		aime.SetBool ("do2", false);
-        hp1 = hp1 - 0.1;
+		aime.SetBool ("do3", true);
+        hp1 = hp1 - 0.5;
         hpText.text = hp1.ToString();
         work = work - 3;
-        worktext.text = (work).ToString();
-        hpy = hpy + 0.5;
-        hpyText.text = (hpy ).ToString();
+        worktext.text = (work).ToString("F1");
+        hpy = hpy + 0.1;
+        hpyText.text = (hpy ).ToString("F1");
 		HPboost = 0;
-		aime.SetBool ("do3", true);
-		aime.SetFloat ("do3v",Random.Range (-1f, 3f));
-		aime.SetBool ("BP", true);
     } 
     public void Update()
     {
+		if (hp1 <= 0) 
+		{
+			hpText.color = Color.red;
+		} 
+		else if (hp1 <= 50 && hp1 > 0) 
+		{
+			hpText.color = Color.yellow;
+		}
+		else
+		{
+			hpText.color = Color.black;
+		}
 
+		if (hpy <= 0)
+		{
+			hpyText.color = Color.red;
+		} 
+		else if(hpy>100)
+		{
+			hpyText.color = Color.green;
+		}
+		else
+		{
+			hpyText.color = Color.black;
+		}
 		if (hpy>=0 && hpy<=50 && paper<=50 &&work<=0)//GG END
         {
             SceneManager.LoadScene(end1);
@@ -117,21 +138,32 @@ public class game : MonoBehaviour {
 
 		}
         time += Time.deltaTime;
-        day1.text = (time).ToString();
-		int animatereturner = 0;
+        day1.text = (time).ToString("F1");
 		if ((int)time>tt)
         {
 			HPboost++;
             work = work - 1;
 			Lday=work/24;
-			Ldaytext.text = (Lday).ToString();
-            worktext.text = (work).ToString();
+			Ldaytext.text = (Lday).ToString("F1");
+			worktext.text = (work).ToString("F1");
+			animatereturner++;
+			aime.SetInteger ("dov1", Random.Range (0, 2));
+			aime.SetInteger ("dov3", Random.Range (0, 3));
+			aime.SetInteger ("dov2", Random.Range (0, 3));
+			if (animatereturner >= 10)
+			{
+				aime.SetBool ("BP",false);
+				aime.SetBool ("do1", false);
+				aime.SetBool ("do2", false);
+				aime.SetBool ("do3", false);
+				animatereturner = 0;
+			}
 			if (hp1 < 100) 
 			{
-				animatereturner++;
-				if (HPboost >5 && hp1<97.5)
+				
+				if (HPboost >5 && hp1<=97.9)
 				{
-					hp1 = hp1 + 2.5;
+					hp1 = hp1 + 3.1;
 					aime.SetBool ("BP",false);
 					aime.SetBool ("do1", false);
 					aime.SetBool ("do2", false);
@@ -141,16 +173,8 @@ public class game : MonoBehaviour {
 				{
 					hp1 = hp1 + 0.1;
 				}
-				if (animatereturner >= 3)
-				{
-					aime.SetBool ("BP",false);
-					aime.SetBool ("do1", false);
-					aime.SetBool ("do2", false);
-					aime.SetBool ("do3", false);
-					animatereturner = 0;
-				}
 			}
-            hpText.text = hp1.ToString();
+            hpText.text = hp1.ToString("F1");
         }
         tt = (int)time;
     }
