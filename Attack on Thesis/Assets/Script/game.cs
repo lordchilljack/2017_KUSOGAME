@@ -34,7 +34,14 @@ public class game : MonoBehaviour {
 		worktext.text = (work ).ToString("F1");
         hpy = hpy - 1;
 		hpyText.text = (hpy ).ToString("F1");
-        paper += (100 - hp1) / 100;
+		if (hp1 <= -10) 
+		{
+			paper+= ((hp1-100)/100);
+		} 
+		else
+		{
+			paper += ((100-hp1)/100);
+		}
 		papertext.text = (paper).ToString("F1");
 		HPboost = 0;
     }
@@ -68,6 +75,51 @@ public class game : MonoBehaviour {
     } 
     public void Update()
     {
+		ColorCtrl ();
+		Ending (hp1, hpy, work, paper);
+        time += Time.deltaTime;
+        day1.text = (time).ToString("F1");
+		if ((int)time>tt)
+        {
+			HPboost++;
+            work = work - 1;
+			Lday=work/24;
+			Ldaytext.text = (Lday).ToString("F1");
+			worktext.text = (work).ToString("F1");
+			animatereturner++;
+			aime.SetInteger ("dov1", Random.Range (0, 2));
+			aime.SetInteger ("dov3", Random.Range (0, 3));
+			aime.SetInteger ("dov2", Random.Range (0, 3));
+			if (animatereturner >= 10)
+			{
+				aime.SetBool ("BP",false);
+				aime.SetBool ("do1", false);
+				aime.SetBool ("do2", false);
+				aime.SetBool ("do3", false);
+				animatereturner = 0;
+			}
+			if (hp1 < 100 && aime.GetBool("BP")==false) 
+			{
+				
+				if (HPboost >5 && hp1<=97.9)
+				{
+					hp1 = hp1 + 3.1;
+					aime.SetBool ("BP",false);
+					aime.SetBool ("do1", false);
+					aime.SetBool ("do2", false);
+				    aime.SetBool ("do3", false);
+				}
+				else
+				{
+					hp1 = hp1 + 0.1;
+				}
+			}
+            hpText.text = hp1.ToString("F1");
+        }
+        tt = (int)time;
+    }
+	void ColorCtrl()
+	{
 		if (hp1 <= 0) 
 		{
 			hpText.color = Color.red;
@@ -93,89 +145,95 @@ public class game : MonoBehaviour {
 		{
 			hpyText.color = Color.black;
 		}
-		if (hpy>=0 && hpy<=50 && paper<=50 &&work<=0)//GG END
-        {
-            SceneManager.LoadScene(end1);
-        }
-        if (paper >= 100 &&hpy>0)//Good ENd
-        {
-            SceneManager.LoadScene(end2);
+	}
 
-        }
-        if (hp1 > 0 && paper < 75 && hpy <= -75 && work <= 24)//Jump End
-        {
-            SceneManager.LoadScene(end3);
-
-        }
-		if (hp1 < 0 && paper > 75 && hpy <= -10 && work <=0)//Collapse End
-        {
-            SceneManager.LoadScene(end4);
-
-        }
-		if (paper >= 100 && hpy < 0 && work >= 0)//Old End
-        {
-            SceneManager.LoadScene(end5);
-
-        }
-        if (paper < 50 && hpy >= 100 && work <=0)//Faro End
-        {
-            SceneManager.LoadScene(end6);
-
-        }
-		if (paper >= 50 && hpy >= 100 && work > 10)//PhD End
-		{
-			SceneManager.LoadScene(end7);
-
-		}
-		if (paper < 50 && hpy <= -50 && work <= 240)//Quit End
-		{
-			SceneManager.LoadScene(end8);
-
-		}
-		if (paper >=100 && hpy <= -50 && work <=0)//NeverTouch End
-		{
-			SceneManager.LoadScene(end9);
-
-		}
-        time += Time.deltaTime;
-        day1.text = (time).ToString("F1");
-		if ((int)time>tt)
-        {
-			HPboost++;
-            work = work - 1;
-			Lday=work/24;
-			Ldaytext.text = (Lday).ToString("F1");
-			worktext.text = (work).ToString("F1");
-			animatereturner++;
-			aime.SetInteger ("dov1", Random.Range (0, 2));
-			aime.SetInteger ("dov3", Random.Range (0, 3));
-			aime.SetInteger ("dov2", Random.Range (0, 3));
-			if (animatereturner >= 10)
+	void Ending(double HP, double HPY, double Lhour, double Complete)
+	{
+		if (Lhour <= 0)
+		{//時間到結局
+			if (Complete >= 100)
 			{
-				aime.SetBool ("BP",false);
-				aime.SetBool ("do1", false);
-				aime.SetBool ("do2", false);
-				aime.SetBool ("do3", false);
-				animatereturner = 0;
-			}
-			if (hp1 < 100) 
-			{
-				
-				if (HPboost >5 && hp1<=97.9)
+				if (HPY >= 100 && HP >= 0) 
 				{
-					hp1 = hp1 + 3.1;
-					aime.SetBool ("BP",false);
-					aime.SetBool ("do1", false);
-					aime.SetBool ("do2", false);
-				    aime.SetBool ("do3", false);
-				}
+					SceneManager.LoadScene (end2);//彩色畢業END
+				} 
+				else if ( HPY > -50) 
+				{
+					SceneManager.LoadScene (end5);//老人畢業END
+				} 
 				else
 				{
-					hp1 = hp1 + 0.1;
+					SceneManager.LoadScene (end9);//蜘蛛網畢業END
 				}
 			}
-            hpText.text = hp1.ToString("F1");
-        }
-        tt = (int)time;
-    }
+			else if (Complete >= 50 && Complete < 100) 
+			{
+				if (HPY >= 50)
+				{
+					SceneManager.LoadScene (end7);//簽下去END
+				}
+				else if (HPY > 0 && HPY < 50)
+				{
+					SceneManager.LoadScene (end5);//老人畢業END
+				} 
+				else 
+				{ //快樂負值
+					SceneManager.LoadScene (end4);//崩潰 END
+				}
+			} 
+			else 
+			{
+				//論文進度小於50
+				if (HPY >= 100) 
+				{
+					SceneManager.LoadScene (end6);//法老王END
+				} 
+				else if (HPY > 0 && HPY < 50)
+				{
+					SceneManager.LoadScene (end1);//GG END
+				} 
+				else
+				{
+					SceneManager.LoadScene (end4);//崩潰 END
+				}
+			}
+		} 
+		else if (Lhour <= 240 && HPY <= -50) 
+		{
+			SceneManager.LoadScene (end8);//休學END
+		} 
+		else if (Lhour <= 24 && HPY <= -50)
+		{
+			SceneManager.LoadScene (end3);//跳樓END
+		}
+		else
+		{//無視時間觸發類型
+			if (Complete >= 100)
+			{
+				if (HPY >= 100 && HP >= 0) 
+				{
+					SceneManager.LoadScene (end2);//彩色畢業END
+				} 
+				else if (HPY > -50) 
+				{
+					SceneManager.LoadScene (end5);//老人畢業END
+				} 
+				else 
+				{
+					SceneManager.LoadScene (end9);//蜘蛛網畢業END
+				}	
+			}
+			if (HP <= -75) 
+			{
+				if (HPY <= -50) 
+				{
+					if(Complete>=50)
+						SceneManager.LoadScene (end8);//休學END
+					else
+						SceneManager.LoadScene (end3);//跳樓END
+				}
+
+			}
+		}
+	}
 }
