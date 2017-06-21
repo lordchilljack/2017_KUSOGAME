@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class start : MonoBehaviour {	// Use this for initialization
-	         public void ChangeScene(string scenename)
+	public void ChangeScene(string scenename)
     {
-        Application.LoadLevel(scenename);
+		SceneManager.LoadScene(scenename);
     }
 
 
