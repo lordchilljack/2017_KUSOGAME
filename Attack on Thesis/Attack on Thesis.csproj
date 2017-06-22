@@ -78,6 +78,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\AddObj.cs" />
+    <Compile Include="Assets\Script\SelfDistuct.cs" />
     <Compile Include="Assets\Script\game.cs" />
     <Compile Include="Assets\Script\start.cs" />
   </ItemGroup>
