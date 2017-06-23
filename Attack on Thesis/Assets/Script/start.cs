@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class start : MonoBehaviour {	// Use this for initialization
+
+public class start : MonoBehaviour {
 	public void ChangeScene(string scenename)
     {
 		SceneManager.LoadScene(scenename);
     }
-
+	public void exitgame()
+	{
+		Application.Quit ();	
+	}
 
 }

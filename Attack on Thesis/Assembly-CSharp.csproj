@@ -47,7 +47,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\AddObj.cs" />
+     <Compile Include="Assets\Script\GameMemory.cs" />
+     <Compile Include="Assets\Script\Progression.cs" />
+     <Compile Include="Assets\Script\SaveLoad.cs" />
      <Compile Include="Assets\Script\SelfDistuct.cs" />
+     <Compile Include="Assets\Script\ShowProgress.cs" />
      <Compile Include="Assets\Script\game.cs" />
      <Compile Include="Assets\Script\start.cs" />
  <Reference Include="UnityEngine.UI">

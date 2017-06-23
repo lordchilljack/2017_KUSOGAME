@@ -18,6 +18,7 @@ public class game : MonoBehaviour {
 	private int HPboost = 0;
     public Animator aime;
 	private int animatereturner = 0;
+	Progression nowstate;
     public void Start()
     {
 		aime = GetComponentInChildren<Animator>();
@@ -155,30 +156,42 @@ public class game : MonoBehaviour {
 			{
 				if (HPY >= 100 && HP >= 0) 
 				{
-					SceneManager.LoadScene (end2);//彩色畢業END
+					nowstate.EDF = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end2);//彩色畢業END-F
 				} 
 				else if ( HPY > -50) 
 				{
-					SceneManager.LoadScene (end5);//老人畢業END
+					nowstate.EDA = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end5);//老人畢業END-A
 				} 
 				else
 				{
-					SceneManager.LoadScene (end9);//蜘蛛網畢業END
+					nowstate.EDH = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end9);//蜘蛛網畢業END-H
 				}
 			}
 			else if (Complete >= 50 && Complete < 100) 
 			{
 				if (HPY >= 50)
 				{
-					SceneManager.LoadScene (end7);//簽下去END
+					nowstate.EDI = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end7);//簽下去END-I
 				}
 				else if (HPY > 0 && HPY < 50)
 				{
-					SceneManager.LoadScene (end5);//老人畢業END
+					nowstate.EDA = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end5);//老人畢業END-A
 				} 
 				else 
 				{ //快樂負值
-					SceneManager.LoadScene (end4);//崩潰 END
+					nowstate.EDC = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end4);//崩潰 END-C
 				}
 			} 
 			else 
@@ -186,25 +199,35 @@ public class game : MonoBehaviour {
 				//論文進度小於50
 				if (HPY >= 100) 
 				{
-					SceneManager.LoadScene (end6);//法老王END
+					nowstate.EDB = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end6);//法老王END-B
 				} 
 				else if (HPY > 0 && HPY < 50)
 				{
-					SceneManager.LoadScene (end1);//GG END
+					nowstate.EDG = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end1);//GG END-G
 				} 
 				else
 				{
-					SceneManager.LoadScene (end4);//崩潰 END
+					nowstate.EDC = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end4);//崩潰 END-C
 				}
 			}
 		} 
 		else if (Lhour <= 240 && HPY <= -50) 
 		{
-			SceneManager.LoadScene (end8);//休學END
+			nowstate.EDD = true;
+			SaveLoad.Save ();
+			SceneManager.LoadScene (end8);//休學END-D
 		} 
 		else if (Lhour <= 24 && HPY <= -50)
 		{
-			SceneManager.LoadScene (end3);//跳樓END
+			nowstate.EDE = true;
+			SaveLoad.Save ();
+			SceneManager.LoadScene (end3);//跳樓END-E
 		}
 		else
 		{//無視時間觸發類型
@@ -212,25 +235,37 @@ public class game : MonoBehaviour {
 			{
 				if (HPY >= 100 && HP >= 0) 
 				{
-					SceneManager.LoadScene (end2);//彩色畢業END
+					nowstate.EDF = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end2);//彩色畢業END-F
 				} 
 				else if (HPY > -50) 
 				{
-					SceneManager.LoadScene (end5);//老人畢業END
+					nowstate.EDA = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end5);//老人畢業END-A
 				} 
 				else 
 				{
-					SceneManager.LoadScene (end9);//蜘蛛網畢業END
+					nowstate.EDH = true;
+					SaveLoad.Save ();
+					SceneManager.LoadScene (end9);//蜘蛛網畢業END-H
 				}	
 			}
 			if (HP <= -75) 
 			{
 				if (HPY <= -50) 
 				{
-					if(Complete>=50)
-						SceneManager.LoadScene (end8);//休學END
-					else
-						SceneManager.LoadScene (end3);//跳樓END
+					if (Complete >= 50) {
+						nowstate.EDD = true;
+						SaveLoad.Save ();
+						SceneManager.LoadScene (end8);//休學END-D
+					}
+					else {
+						nowstate.EDE = true;
+						SaveLoad.Save ();
+						SceneManager.LoadScene (end3);//跳樓END-E
+					}
 				}
 
 			}
