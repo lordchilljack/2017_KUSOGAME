@@ -5,29 +5,29 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ShowProgress : MonoBehaviour {
-	Progression nowstate;
+	public GameMemory nowstate;
 	public Text EDA, EDB, EDC, EDD, EDE, EDF, EDG, EDH, EDI;
 	void Start () {
 		SaveLoad.Load ();
-		if (nowstate.EDA == true)
+		if (nowstate.ENDINGS.EDA == true)
 			EDA.color = Color.black;
-		if (nowstate.EDB == true)
+		if (nowstate.ENDINGS.EDB == true)
 			EDB.color = Color.black;
-		if (nowstate.EDC == true)
+		if (nowstate.ENDINGS.EDC == true)
 			EDC.color = Color.black;
-		if (nowstate.EDD == true)
+		if (nowstate.ENDINGS.EDD == true)
 			EDD.color = Color.black;
-		if (nowstate.EDE == true)
+		if (nowstate.ENDINGS.EDE == true)
 			EDE.color = Color.black;
-		if (nowstate.EDF == true)
+		if (nowstate.ENDINGS.EDF == true)
 			EDF.color = Color.black;
-		if (nowstate.EDE == true)
+		if (nowstate.ENDINGS.EDE == true)
 			EDE.color = Color.black;
-		if (nowstate.EDG == true)
+		if (nowstate.ENDINGS.EDG == true)
 			EDG.color = Color.black;
-		if (nowstate.EDH == true)
+		if (nowstate.ENDINGS.EDH == true)
 			EDH.color = Color.black;
-		if (nowstate.EDI == true)
+		if (nowstate.ENDINGS.EDI == true)
 			EDI.color = Color.black;
 	}
 }
