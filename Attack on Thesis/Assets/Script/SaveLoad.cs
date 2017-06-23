@@ -16,12 +16,22 @@ public static class SaveLoad{
 	}
 
 	public static void Load(){
-		if (File.Exists (Application.persistentDataPath +"/savedGame.aot")) 
-		{
+		if (File.Exists (Application.persistentDataPath + "/savedGame.aot")) {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/savedGame.aot", FileMode.Open);
-			SaveLoad.savedGame=(GameMemory)bf.Deserialize(file);
-			file.Close();
+			SaveLoad.savedGame = (GameMemory)bf.Deserialize (file);
+			file.Close ();
+		} 
+		else
+		{
+			savedGame=GameMemory.current;
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Create (Application.persistentDataPath + "/savedGame.aot");
+			bf.Serialize (file,SaveLoad.savedGame);
+			file.Close ();
+			file = File.Open (Application.persistentDataPath + "/savedGame.aot", FileMode.Open);
+			SaveLoad.savedGame = (GameMemory)bf.Deserialize (file);
+			file.Close ();
 		}
 	}
 }

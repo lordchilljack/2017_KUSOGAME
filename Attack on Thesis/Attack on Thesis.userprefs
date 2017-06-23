@@ -1,13 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\start.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\GameMemory.cs">
     <Files>
-      <File FileName="Assets\Script\start.cs" Line="15" Column="3" />
-      <File FileName="Assets\Script\game.cs" Line="80" Column="3" />
-      <File FileName="Assets\Script\SaveLoad.cs" Line="21" Column="48" />
-      <File FileName="Assets\Script\ShowProgress.cs" Line="11" Column="20" />
-      <File FileName="Assets\Script\Progression.cs" Line="15" Column="20" />
+      <File FileName="Assets\Script\game.cs" Line="21" Column="28" />
+      <File FileName="Assets\Script\SaveLoad.cs" Line="20" Column="48" />
+      <File FileName="Assets\Script\ShowProgress.cs" Line="11" Column="3" />
       <File FileName="Assets\Script\GameMemory.cs" Line="9" Column="32" />
+      <File FileName="Assets\Script\Progression.cs" Line="15" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

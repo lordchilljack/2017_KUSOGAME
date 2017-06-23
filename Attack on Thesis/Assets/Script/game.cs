@@ -22,6 +22,7 @@ public class game : MonoBehaviour {
     public void Start()
     {
 		aime = GetComponentInChildren<Animator>();
+		SaveLoad.Load ();
     }
     public void  Down()//work
     {
