@@ -8,8 +8,7 @@ public class Debug_SL : MonoBehaviour {
 	public GameMemory nowstate = new GameMemory();
 	public void doSave()
 	{
-		nowstate.ENDINGS.EDA = true;
-		SaveLoad.savedGame.ENDINGS.EDA = nowstate.ENDINGS.EDA;
+		GameMemory.current.ENDINGS.EDA = true;
 		SaveLoad.Save ();
 	}
 	public void doLoad(string scenename)

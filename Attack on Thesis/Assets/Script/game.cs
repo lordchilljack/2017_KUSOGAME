@@ -18,12 +18,10 @@ public class game : MonoBehaviour {
 	private int HPboost = 0;
     public Animator aime;
 	private int animatereturner = 0;
-	public GameMemory nowstate;
     public void Start()
     {
 		aime = GetComponentInChildren<Animator>();
 		SaveLoad.Load ();
-		nowstate = SaveLoad.savedGame;
     }
     public void  Down()//work
     {
@@ -158,22 +156,20 @@ public class game : MonoBehaviour {
 			{
 				if (HPY >= 100 && HP >= 0) 
 				{
-					nowstate.ENDINGS.EDF = true;
-					SaveLoad.savedGame.ENDINGS.EDF = nowstate.ENDINGS.EDF;
+					
+					GameMemory.current.ENDINGS.EDF =true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end2);//彩色畢業END-F
 				} 
 				else if ( HPY > -50) 
 				{
-					nowstate.ENDINGS.EDA = true;
-					SaveLoad.savedGame.ENDINGS.EDA = nowstate.ENDINGS.EDA;
+					GameMemory.current.ENDINGS.EDA = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end5);//老人畢業END-A
 				} 
 				else
 				{
-					nowstate.ENDINGS.EDH = true;
-					SaveLoad.savedGame.ENDINGS.EDH = nowstate.ENDINGS.EDH;
+					GameMemory.current.ENDINGS.EDH = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end9);//蜘蛛網畢業END-H
 				}
@@ -182,22 +178,19 @@ public class game : MonoBehaviour {
 			{
 				if (HPY >= 50)
 				{
-					nowstate.ENDINGS.EDI = true;
-					SaveLoad.savedGame.ENDINGS.EDI = nowstate.ENDINGS.EDI;
+					GameMemory.current.ENDINGS.EDI = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end7);//簽下去END-I
 				}
 				else if (HPY > 0 && HPY < 50)
 				{
-					nowstate.ENDINGS.EDA = true;
-					SaveLoad.savedGame.ENDINGS.EDA = nowstate.ENDINGS.EDA;
+					GameMemory.current.ENDINGS.EDA = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end5);//老人畢業END-A
 				} 
 				else 
 				{ //快樂負值
-					nowstate.ENDINGS.EDC = true;
-					SaveLoad.savedGame.ENDINGS.EDC = nowstate.ENDINGS.EDC;
+					GameMemory.current.ENDINGS.EDC = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end4);//崩潰 END-C
 				}
@@ -207,22 +200,19 @@ public class game : MonoBehaviour {
 				//論文進度小於50
 				if (HPY >= 100) 
 				{
-					nowstate.ENDINGS.EDB = true;
-					SaveLoad.savedGame.ENDINGS.EDB = nowstate.ENDINGS.EDB;
+					GameMemory.current.ENDINGS.EDB = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end6);//法老王END-B
 				} 
 				else if (HPY > 0 && HPY < 50)
 				{
-					nowstate.ENDINGS.EDG = true;
-					SaveLoad.savedGame.ENDINGS.EDG = nowstate.ENDINGS.EDG;
+					GameMemory.current.ENDINGS.EDG = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end1);//GG END-G
 				} 
 				else
 				{
-					nowstate.ENDINGS.EDC = true;
-					SaveLoad.savedGame.ENDINGS.EDC = nowstate.ENDINGS.EDC;
+					GameMemory.current.ENDINGS.EDC = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end4);//崩潰 END-C
 				}
@@ -230,15 +220,13 @@ public class game : MonoBehaviour {
 		} 
 		else if (Lhour <= 240 && HPY <= -50) 
 		{
-			nowstate.ENDINGS.EDD = true;
-			SaveLoad.savedGame.ENDINGS.EDD = nowstate.ENDINGS.EDD;
+			GameMemory.current.ENDINGS.EDD = true;
 			SaveLoad.Save ();
 			SceneManager.LoadScene (end8);//休學END-D
 		} 
 		else if (Lhour <= 24 && HPY <= -50)
 		{
-			nowstate.ENDINGS.EDE = true;
-			SaveLoad.savedGame.ENDINGS.EDE = nowstate.ENDINGS.EDE;
+			GameMemory.current.ENDINGS.EDE = true;
 			SaveLoad.Save ();
 			SceneManager.LoadScene (end3);//跳樓END-E
 		}
@@ -248,22 +236,19 @@ public class game : MonoBehaviour {
 			{
 				if (HPY >= 100 && HP >= 0) 
 				{
-					nowstate.ENDINGS.EDF = true;
-					SaveLoad.savedGame.ENDINGS.EDF = nowstate.ENDINGS.EDF;
+					GameMemory.current.ENDINGS.EDF = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end2);//彩色畢業END-F
 				} 
 				else if (HPY > -50) 
 				{
-					nowstate.ENDINGS.EDA = true;
-					SaveLoad.savedGame.ENDINGS.EDA = nowstate.ENDINGS.EDA;
+					GameMemory.current.ENDINGS.EDA = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end5);//老人畢業END-A
 				} 
 				else 
 				{
-					nowstate.ENDINGS.EDH = true;
-					SaveLoad.savedGame.ENDINGS.EDH = nowstate.ENDINGS.EDH;
+					GameMemory.current.ENDINGS.EDH = true;
 					SaveLoad.Save ();
 					SceneManager.LoadScene (end9);//蜘蛛網畢業END-H
 				}	
@@ -273,14 +258,12 @@ public class game : MonoBehaviour {
 				if (HPY <= -50) 
 				{
 					if (Complete >= 50) {
-						nowstate.ENDINGS.EDD = true;
-						SaveLoad.savedGame.ENDINGS.EDD = nowstate.ENDINGS.EDD;
+						GameMemory.current.ENDINGS.EDD = true;
 						SaveLoad.Save ();
 						SceneManager.LoadScene (end8);//休學END-D
 					}
 					else {
-						nowstate.ENDINGS.EDE = true;
-						SaveLoad.savedGame.ENDINGS.EDE = nowstate.ENDINGS.EDE;
+						GameMemory.current.ENDINGS.EDE = true;
 						SaveLoad.Save();
 						SceneManager.LoadScene (end3);//跳樓END-E
 					}

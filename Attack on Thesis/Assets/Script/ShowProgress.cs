@@ -5,33 +5,32 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ShowProgress : MonoBehaviour {
-	public GameMemory nowstate;
 	public Text EDA, EDB, EDC, EDD, EDE, EDF, EDG, EDH, EDI;
 	void Start () {
 		SaveLoad.Load ();
-		nowstate = SaveLoad.savedGame;
+
 	}
 	void Update()
 	{
-		if (nowstate.ENDINGS.EDA == true)
+		if (GameMemory.current.ENDINGS.EDA == true)
 			EDA.color = Color.black;
-		if (nowstate.ENDINGS.EDB == true)
+		if (GameMemory.current.ENDINGS.EDB == true)
 			EDB.color = Color.black;
-		if (nowstate.ENDINGS.EDC == true)
+		if (GameMemory.current.ENDINGS.EDC == true)
 			EDC.color = Color.black;
-		if (nowstate.ENDINGS.EDD == true)
+		if (GameMemory.current.ENDINGS.EDD == true)
 			EDD.color = Color.black;
-		if (nowstate.ENDINGS.EDE == true)
+		if (GameMemory.current.ENDINGS.EDE == true)
 			EDE.color = Color.black;
-		if (nowstate.ENDINGS.EDF == true)
+		if (GameMemory.current.ENDINGS.EDF == true)
 			EDF.color = Color.black;
-		if (nowstate.ENDINGS.EDE == true)
+		if (GameMemory.current.ENDINGS.EDE == true)
 			EDE.color = Color.black;
-		if (nowstate.ENDINGS.EDG == true)
+		if (GameMemory.current.ENDINGS.EDG == true)
 			EDG.color = Color.black;
-		if (nowstate.ENDINGS.EDH == true)
+		if (GameMemory.current.ENDINGS.EDH == true)
 			EDH.color = Color.black;
-		if (nowstate.ENDINGS.EDI == true)
+		if (GameMemory.current.ENDINGS.EDI == true)
 			EDI.color = Color.black;
 	}
 }
