@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\AddObj.cs" />
+     <Compile Include="Assets\Script\Debug_SL.cs" />
      <Compile Include="Assets\Script\GameMemory.cs" />
      <Compile Include="Assets\Script\Progression.cs" />
      <Compile Include="Assets\Script\SaveLoad.cs" />

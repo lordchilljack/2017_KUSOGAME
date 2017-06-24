@@ -9,6 +9,10 @@ public class ShowProgress : MonoBehaviour {
 	public Text EDA, EDB, EDC, EDD, EDE, EDF, EDG, EDH, EDI;
 	void Start () {
 		SaveLoad.Load ();
+		nowstate = SaveLoad.savedGame;
+	}
+	void Update()
+	{
 		if (nowstate.ENDINGS.EDA == true)
 			EDA.color = Color.black;
 		if (nowstate.ENDINGS.EDB == true)
