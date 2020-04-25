@@ -2,11 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\game.cs">
     <Files>
-      <File FileName="Assets\Script\game.cs" Line="166" Column="44" />
-      <File FileName="Assets\Script\ShowProgress.cs" Line="33" Column="25" />
-      <File FileName="Assets\Script\start.cs" Line="11" Column="3" />
-      <File FileName="Assets\Script\Debug_SL.cs" Line="12" Column="3" />
-      <File FileName="Assets\Script\SaveLoad.cs" Line="12" Column="44" />
+      <File FileName="Assets\Script\game.cs" Line="88" Column="42" />
+      <File FileName="Assets\Script\ShowProgress.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\start.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Debug_SL.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\SaveLoad.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

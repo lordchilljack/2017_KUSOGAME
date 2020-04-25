@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/SaveLoad_Debug.unity
+- path: Assets/Main Game.unity
   isLoaded: 1
   isActive: 1
